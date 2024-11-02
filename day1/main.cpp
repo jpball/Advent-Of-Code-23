@@ -83,9 +83,49 @@ int main(int argc, char** argv)
     return 0;
 }
 //--
+/*
+    Combine first digit and last digit and add together
+    1abc2 - 12
+    pqr3stu8vwx - 38
+    a1b2c3d4e5f - 15
+    treb7uchet - 77
+*/
 int EvalOne(const std::vector<std::string>& data)
 {
-    return 0;
+    std::vector<int> extractedNumbers;
+
+    for(int i = 0; i < data.size(); i++)
+    {
+        std::string lineWord = data.at(i);
+
+        size_t l_index = 0;
+        size_t r_index = lineWord.size();
+        std::string number = "";
+
+        while(!isnumber(lineWord[l_index]))
+        {
+            l_index++;
+        }
+        number.push_back(lineWord[l_index]);
+
+        while(!isnumber(lineWord[r_index]))
+        {
+            r_index--;
+        }
+        number.push_back(lineWord[r_index]);
+
+
+        extractedNumbers.push_back(stoi(number));
+    }
+
+    // Calculate total
+    int sum = 0;
+    for(int i = 0; i < extractedNumbers.size(); i++)
+    {
+        sum += extractedNumbers.at(i);
+    }
+
+    return sum;
 }
 //--
 int EvalTwo(const std::vector<std::string>& data)
