@@ -12,8 +12,11 @@
 #define TEST_FILE_EXP_VALUE_ONE 0
 #define TEST_FILE_EXP_VALUE_TWO 0
 
+// Part one of each day's challenge
 int EvalOne(const std::vector<std::string>& data);
+// Part two of each day's challenge
 int EvalTwo(const std::vector<std::string>& data);
+// Read file logic
 std::vector<std::string> ReadFile(const std::string& filePath);
 
 int main(int argc, char** argv)
@@ -33,11 +36,12 @@ int main(int argc, char** argv)
     const std::vector<std::string> testData = ReadFile(TEST_FILE_PATH);
 
     if(DEBUG_MODE)
+    {
         std:: cout << "Read line(s): " << testData.size() << std::endl;
+    }
 
     int testValueOne = EvalOne(testData);
     std::cout << "Expecting: " << TEST_FILE_EXP_VALUE_ONE << " Actual: " << testValueOne << std::endl;
-
     if(TEST_FILE_EXP_VALUE_ONE != testValueOne)
     {
         std::cout << "Test One failed.... exiting." << std::endl;
@@ -50,8 +54,9 @@ int main(int argc, char** argv)
     const std::vector<std::string> realData = ReadFile(FULL_FILE_PATH);
 
     if(DEBUG_MODE)
+    {
         std:: cout << "Read line(s): " << realData.size() << std::endl;
-
+    }
     int realValueOne = EvalOne(realData);
     std::cout << "Real file result: " << realValueOne << std::endl;
 
@@ -74,7 +79,8 @@ int main(int argc, char** argv)
     int realValueTwo = EvalTwo(realData);
     std::cout << "Real file result: " << realValueTwo << std::endl;
     */
-    
+    std::cout << "-------------------------------------" << std::endl;
+    return 0;
 }
 //--
 int EvalOne(const std::vector<std::string>& data)
