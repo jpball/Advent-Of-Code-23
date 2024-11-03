@@ -18,7 +18,11 @@ int EvalOne(const std::vector<std::string>& data);
 int EvalTwo(const std::vector<std::string>& data);
 // Read file logic
 std::vector<std::string> ReadFile(const std::string& filePath);
-
+// Sums all integers in a vector
+int SumVector(const std::vector<int>& values)
+//--
+//--
+//--
 int main(int argc, char** argv)
 {
     if(DEBUG_MODE)
@@ -76,12 +80,14 @@ int main(int argc, char** argv)
 //--
 int EvalOne(const std::vector<std::string>& data)
 {
-    return 0;
+    std::vector<int> values;
+    return SumVector(values);
 }
 //--
 int EvalTwo(const std::vector<std::string>& data)
 {
-    return 0;
+    std::vector<int> values;
+    return SumVector(values);
 }
 //--
 std::vector<std::string> ReadFile(const std::string& filePath)
@@ -97,4 +103,14 @@ std::vector<std::string> ReadFile(const std::string& filePath)
     file.close();
     return retVal;
 }
+//--
+int SumVector(const std::vector<int>& values)
+{
+    int sum = 0;
+    for(auto val : values)
+    {
+        sum += val;
+    }
 
+    return sum;
+}
