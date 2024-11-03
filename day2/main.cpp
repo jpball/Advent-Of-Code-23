@@ -139,9 +139,7 @@ int EvalOne(const std::vector<std::string>& data)
 int EvalTwo(const std::vector<std::string>& data)
 {
     std::vector<int> values;
-    const size_t NUM_RED = 12;
-    const size_t NUM_BLUE = 14;
-    const size_t NUM_GREEN = 13;
+
     for(std::string line : data)
     {
         const std::vector<std::string> GAME_DATA_SPLIT = SplitString(line, ": ");
@@ -150,7 +148,6 @@ int EvalTwo(const std::vector<std::string>& data)
         const std::vector<std::string> GAME_CUBE_SETS = SplitString(GAME_DATA_SPLIT.at(1), "; ");
         // "3 blue, 4 red", "1 red, 2 green, 6 blue", "2 green"
 
-        bool gamePossible = true;
         int maxRedSoFar = 0;
         int maxBlueSoFar = 0;
         int maxGreenSoFar = 0;
