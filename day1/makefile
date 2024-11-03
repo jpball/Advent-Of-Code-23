@@ -1,4 +1,5 @@
 make:
-	g++ -Wall main.cpp
-	./a.out
-	rm -f ./a.out
+	g++ -Wall -std=c++11 main.cpp -o main
+	./main
+	rm -f main
+	rm -f *.dSYM
