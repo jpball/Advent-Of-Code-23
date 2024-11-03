@@ -19,7 +19,9 @@ int EvalTwo(const std::vector<std::string>& data);
 // Read file logic
 std::vector<std::string> ReadFile(const std::string& filePath);
 // Sums all integers in a vector
-int SumVector(const std::vector<int>& values)
+int SumVector(const std::vector<int>& values);
+//--
+std::vector<std::string> SplitString(const std::string LINE, const std::string SEPARATOR);
 //--
 //--
 //--
@@ -113,4 +115,27 @@ int SumVector(const std::vector<int>& values)
     }
 
     return sum;
+}
+//--
+std::vector<std::string> SplitString(const std::string LINE, const std::string SEPARATOR)
+{
+    
+    std::vector<std::string> retVec;
+    size_t sepLoc = LINE.find(SEPARATOR);
+    size_t prevSepLoc = 0;
+    std::string chunkStr;
+
+    while(sepLoc != std::string::npos)
+    {
+        chunkStr = LINE.substr(prevSepLoc, sepLoc - prevSepLoc);
+        retVec.push_back(chunkStr);
+
+        prevSepLoc = sepLoc+SEPARATOR.size();
+        sepLoc = LINE.find(SEPARATOR, prevSepLoc+1);
+    }
+
+    chunkStr = LINE.substr(prevSepLoc, sepLoc - prevSepLoc);
+    retVec.push_back(chunkStr);
+
+    return retVec;
 }
