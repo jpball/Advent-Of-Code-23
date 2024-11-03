@@ -5,8 +5,6 @@
 #include <cassert>
 #include <set>
 #include <unordered_map>
-#include <algorithm>
-#include <deque>
 #include <ctype.h>
 
 #define DEBUG_MODE false
@@ -101,7 +99,6 @@ int main(int argc, char** argv)
 
     }
     
-
 
     return 0;
 }
